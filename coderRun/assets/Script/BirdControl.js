@@ -13,10 +13,7 @@ cc.Class({
 		speed: 0
     },
 
-    // LIFE-CYCLE CALLBACKS:
-
     onLoad () {
-		// cc.Canvas.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
 		cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
 	},
 
