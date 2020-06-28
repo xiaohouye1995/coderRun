@@ -4,17 +4,20 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
+import MainControl from "./MainControl"
 cc.Class({
     extends: cc.Component,
 
     properties: {
 		// 小鸟速度
-		speed: 0
+		speed: 0,
+		mainControl: MainControl
     },
 
     onLoad () {
 		cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+		// 初始化mainControl
+		this.mainControl = this.Canvas.getComponent("MainControl");
 	},
 
     start () {
@@ -35,6 +38,12 @@ cc.Class({
 	
 	onTouchStart () {
 		this.speed = 2;
+	},
+	
+	onCollisionEnter() {
+		// 游戏结束
+		cc.log("gameover");
+		this.mainControl.gameOver()
 	}
 	
 });
