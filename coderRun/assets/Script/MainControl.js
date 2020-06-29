@@ -5,25 +5,15 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
+export enum GameStatus {
+	Game_Ready = 0,
+	Game_playing,
+	Game_over
+}
 cc.Class({
 	extends: cc.Component,
 
 	properties: {
-		// foo: {
-		//     // ATTRIBUTES:
-		//     default: null,        // The default value will be used only when the component attaching
-		//                           // to a node for the first time
-		//     type: cc.SpriteFrame, // optional, default is typeof default
-		//     serializable: true,   // optional, default is true
-		// },
-		// bar: {
-		//     get () {
-		//         return this._bar;
-		//     },
-		//     set (value) {
-		//         this._bar = value;
-		//     }
-		// },
 		SpBg: {
 			default: [],
 			type: [cc.Sprite]
@@ -40,6 +30,14 @@ cc.Class({
 			default: null,
 			type: cc.Sprite
 		},
+		btnStart: {
+			default: null,
+			type: cc.Button
+		},
+		gameStatus: {
+			default: GameStatus.Game_Ready,
+			type: GameStatus
+		},
 	},
 
 	// LIFE-CYCLE CALLBACKS:
@@ -54,13 +52,17 @@ cc.Class({
 		this.spGameOver = this.node.getChildByName("GameOver").getComponent(cc.Sprite);
 		// 游戏开始阶段隐藏起来
 		this.spGameOver.node.active = false;
+		// 获取开始按钮
+		this.btnStart = this.node.getChildByName("BtnStart").getComponent(cc.Button);
+		// 给开始按钮添加响应
+		this.btnStart.node.on(cc.Node.EventType.Touch_END, this.touchStartBtn, this);
 	},
 
 	start() {
 		// 生成障碍物
 		for (let i = 0; i < this.pipe.length; i++) {
 			this.pipe[i] = cc.instantiate(this.pipePrefab);
-			this.node.addChild(this.pipe[i]);
+			this.node.getChildByName("Pipe").addChild(this.pipe[i]);
 
 			this.pipe[i].x = 170 + 200 * i;
 			let minY = -120;
@@ -70,6 +72,10 @@ cc.Class({
 	},
 
 	update(dt) {
+		// 游戏状态不等于Game_playing时直接返回
+		if (this.gameStatus !== GameStatus.Game_playing) {
+			return
+		}
 		// 移动背景图
 		for (let i = 0; i < 2; i++) {
 			this.SpBg[i].node.x -= 1.0;
@@ -89,9 +95,33 @@ cc.Class({
 			}
 		}
 	},
-
+	
+	touchStartBtn () {
+		// 隐藏开始按钮
+		this.btnStart.node.active = false;
+		// 游戏状态标记为Game_playing
+		this.gameStatus = GameStatus.Game_playing;
+		// 再来一局时，隐藏gameover图片
+		this.spGameOver.node.active = false;
+		// 再来一局时，管子重置位置
+		for (let i = 0; i < this.pipe.length; i++) {
+			this.pipe[i].x = 170 + 200 * i;
+			let minY = -120;
+			let maxY = 120;
+			this.pipe[i].y = minY + Math.random() * (maxY - minY);
+		}
+		// 再来一局时，还原小鸟位置和角度
+		let bird = this.node.getChildByName("Bird");
+		bird.y = 0;
+		bird.rotation = 0;
+	},
+	
 	gameOver() {
-		console.log(2222)
+		// 游戏结束时，显示gameover
 		this.spGameOver.node.active = true;
+		// 游戏结束时，显示开始按钮
+		this.btnStart.node.active = true;
+		// 游戏状态标记为Game_over
+		this.gameStatus = GameStatus.Game_over;
 	}
 });
