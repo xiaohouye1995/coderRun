@@ -4,16 +4,21 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
-export enum GameStatus {
-	Game_Ready = 0,
-	Game_playing,
-	Game_over
+export const GameStatus = {
+  Game_Ready: 0,
+  Game_playing: 1,
+  Game_over: 2
 }
+import AudioSourceControl from "./AudioSourceControl"
+import {SoundType} from "./AudioSourceControl"
 cc.Class({
 	extends: cc.Component,
 
 	properties: {
+		labelScore: {
+			default: null,
+			type: cc.Label
+		},
 		SpBg: {
 			default: [],
 			type: [cc.Sprite]
@@ -34,9 +39,11 @@ cc.Class({
 			default: null,
 			type: cc.Button
 		},
-		gameStatus: {
-			default: GameStatus.Game_Ready,
-			type: GameStatus
+		gameStatus: 0,
+		gameScore: 0,
+		audioControl: {
+			default: null,
+			type: AudioSourceControl
 		},
 	},
 
@@ -47,7 +54,7 @@ cc.Class({
 		let collisionManager = cc.director.getCollisionManager();
 		collisionManager.enabled = true;
 		// 开启碰撞形状绘制
-		collisionManager.enabledDebugDraw = true;
+		// collisionManager.enabledDebugDraw = true;
 		// 获得游戏结束的精灵
 		this.spGameOver = this.node.getChildByName("GameOver").getComponent(cc.Sprite);
 		// 游戏开始阶段隐藏起来
@@ -55,7 +62,9 @@ cc.Class({
 		// 获取开始按钮
 		this.btnStart = this.node.getChildByName("BtnStart").getComponent(cc.Button);
 		// 给开始按钮添加响应
-		this.btnStart.node.on(cc.Node.EventType.Touch_END, this.touchStartBtn, this);
+		this.btnStart.node.on(cc.Node.EventType.TOUCH_END, this.touchStartBtn, this);
+		// 获取音频模块
+		this.audioControl = this.node.getChildByName("AudioSource").getComponent("AudioSourceControl");
 	},
 
 	start() {
@@ -73,6 +82,7 @@ cc.Class({
 
 	update(dt) {
 		// 游戏状态不等于Game_playing时直接返回
+		console.log(11, this.gameStatus, GameStatus.Game_playing)
 		if (this.gameStatus !== GameStatus.Game_playing) {
 			return
 		}
@@ -92,6 +102,12 @@ cc.Class({
 				let minY = -120;
 				let maxY = 120;
 				this.pipe[i].y = minY + Math.random() * (maxY - minY);
+				
+				// 每当一个管子移除屏幕就加1分
+				this.gameScore++;
+				this.labelScore.string = this.gameScore.toString();
+				// 播放加分音效
+				this.audioControl.playSound(SoundType.E_Sound_Score);
 			}
 		}
 	},
@@ -114,6 +130,9 @@ cc.Class({
 		let bird = this.node.getChildByName("Bird");
 		bird.y = 0;
 		bird.rotation = 0;
+		// 分数清零
+		this.gameScore = 0;
+		this.labelScore.string = this.gameScore.toString();
 	},
 	
 	gameOver() {
@@ -123,5 +142,7 @@ cc.Class({
 		this.btnStart.node.active = true;
 		// 游戏状态标记为Game_over
 		this.gameStatus = GameStatus.Game_over;
+		// 播放结束音效
+		this.audioControl.playSound(SoundType.E_Sound_Die);
 	}
 });

@@ -5,14 +5,14 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 import MainControl from "./MainControl"
-// import {GameStatus} from "./MainControl"
+import {GameStatus} from "./MainControl"
+import {SoundType} from "./AudioSourceControl"
 cc.Class({
     extends: cc.Component,
 
     properties: {
 		// 小鸟速度
 		speed: 0,
-		// mainControl: null,
 		mainControl: {
 			default: null,
 			type: MainControl
@@ -30,10 +30,11 @@ cc.Class({
     },
 
     update (dt) {
+		console.log(22, this.mainControl.gameStatus, GameStatus.Game_playing)
 		// 游戏状态不等于Game_playing时直接返回
-		// if (this.gameStatus !== GameStatus.Game_playing) {
-		// 	return
-		// }
+		if (this.mainControl.gameStatus !== GameStatus.Game_playing) {
+			return
+		}
 		this.speed -= 0.05;
 		this.node.y += this.speed;
 		
@@ -43,14 +44,22 @@ cc.Class({
 			angle = 30;
 		}
 		this.node.rotation = angle;
+		
+		// 当小鸟超出屏幕，游戏结束
+		if (this.node.y >= 256 || this.node.y <= -256) {
+			this.mainControl.gameOver();
+			this.speed = 0;
+		}
 	},
 	
 	onTouchStart () {
 		// 游戏状态不等于Game_playing时直接返回
-		// if (this.gameStatus !== GameStatus.Game_playing) {
-		// 	return
-		// }
+		if (this.mainControl.gameStatus !== GameStatus.Game_playing) {
+			return
+		}
 		this.speed = 2;
+		// 播放飞翔音效
+		this.mainControl.audioControl.playSound(SoundType.E_Sound_Fly)
 	},
 	
 	onCollisionEnter() {
