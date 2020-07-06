@@ -69,47 +69,46 @@ cc.Class({
 
 	start() {
 		// 生成障碍物
-		// for (let i = 0; i < this.pipe.length; i++) {
-		// 	this.pipe[i] = cc.instantiate(this.pipePrefab);
-		// 	this.node.getChildByName("Pipe").addChild(this.pipe[i]);
+		for (let i = 0; i < this.pipe.length; i++) {
+			this.pipe[i] = cc.instantiate(this.pipePrefab);
+			this.node.getChildByName("Pipe").addChild(this.pipe[i]);
 
-		// 	this.pipe[i].x = 170 + 200 * i;
-		// 	let minY = -120;
-		// 	let maxY = 120;
-		// 	this.pipe[i].y = minY + Math.random() * (maxY - minY);
-		// }
+			this.pipe[i].x = 170 + 800 * i;
+			// let minY = -120;
+			// let maxY = 120;
+			// this.pipe[i].y = minY + Math.random() * (maxY - minY);
+		}
 	},
 
 	update(dt) {
 		// 游戏状态不等于Game_playing时直接返回
-		console.log(11, this.gameStatus, GameStatus.Game_playing)
 		if (this.gameStatus !== GameStatus.Game_playing) {
 			return
 		}
 		// 移动背景图
 		for (let i = 0; i < 2; i++) {
-			this.SpBg[i].node.x -= 1.0;
+			this.SpBg[i].node.x -= 6.0;
 			if (this.SpBg[i].node.x <= -960) {
 				this.SpBg[i].node.x = 960
 			}
 		}
 		// 移动障碍物
-		// for (let i = 0; i < this.pipe.length; i++) {
-		// 	this.pipe[i].x -= 1.0;
-		// 	if (this.pipe[i].x <= -170) {
-		// 		this.pipe[i].x = 430;
+		for (let i = 0; i < this.pipe.length; i++) {
+			this.pipe[i].x -= 6.0;
+			if (this.pipe[i].x <= -470) {
+				this.pipe[i].x = 1000;
 
-		// 		let minY = -120;
-		// 		let maxY = 120;
-		// 		this.pipe[i].y = minY + Math.random() * (maxY - minY);
+				let minY = -120;
+				let maxY = 120;
+				// this.pipe[i].y = minY + Math.random() * (maxY - minY);
 				
-		// 		// 每当一个管子移除屏幕就加1分
-		// 		this.gameScore++;
-		// 		this.labelScore.string = this.gameScore.toString();
-		// 		// 播放加分音效
-		// 		this.audioControl.playSound(SoundType.E_Sound_Score);
-		// 	}
-		// }
+				// 每当一个管子移除屏幕就加1分
+				this.gameScore++;
+				this.labelScore.string = this.gameScore.toString();
+				// 播放加分音效
+				this.audioControl.playSound(SoundType.E_Sound_Score);
+			}
+		}
 	},
 	
 	touchStartBtn () {
@@ -120,16 +119,16 @@ cc.Class({
 		// 再来一局时，隐藏gameover图片
 		this.spGameOver.node.active = false;
 		// 再来一局时，管子重置位置
-		// for (let i = 0; i < this.pipe.length; i++) {
-		// 	this.pipe[i].x = 170 + 200 * i;
-		// 	let minY = -120;
-		// 	let maxY = 120;
-		// 	this.pipe[i].y = minY + Math.random() * (maxY - minY);
-		// }
+		for (let i = 0; i < this.pipe.length; i++) {
+			this.pipe[i].x = 170 + 800 * i;
+			let minY = -120;
+			let maxY = 120;
+			// this.pipe[i].y = minY + Math.random() * (maxY - minY);
+		}
 		// 再来一局时，还原小鸟位置和角度
 		let bird = this.node.getChildByName("Bird");
-		bird.y = 0;
-		bird.rotation = 0;
+		bird.y = -160;
+		// bird.rotation = 0;
 		// 分数清零
 		this.gameScore = 0;
 		this.labelScore.string = this.gameScore.toString();
