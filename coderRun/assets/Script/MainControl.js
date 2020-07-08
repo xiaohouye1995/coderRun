@@ -127,7 +127,7 @@ cc.Class({
 		}
 		// 再来一局时，还原小鸟位置和角度
 		let bird = this.node.getChildByName("Bird");
-		bird.y = -174;
+		bird.y = -182;
 		// bird.rotation = 0;
 		// 分数清零
 		this.gameScore = 0;
