@@ -88,8 +88,8 @@ cc.Class({
 		// 移动背景图
 		for (let i = 0; i < 2; i++) {
 			this.SpBg[i].node.x -= 6.0;
-			if (this.SpBg[i].node.x <= -960) {
-				this.SpBg[i].node.x = 960
+			if (this.SpBg[i].node.x <= -2668) {
+				this.SpBg[i].node.x = 2660
 			}
 		}
 		// 移动障碍物
@@ -98,8 +98,8 @@ cc.Class({
 			if (this.pipe[i].x <= -470) {
 				this.pipe[i].x = 1000;
 
-				let minY = -120;
-				let maxY = 120;
+				// let minY = -120;
+				// let maxY = 120;
 				// this.pipe[i].y = minY + Math.random() * (maxY - minY);
 				
 				// 每当一个管子移除屏幕就加1分
@@ -121,13 +121,13 @@ cc.Class({
 		// 再来一局时，管子重置位置
 		for (let i = 0; i < this.pipe.length; i++) {
 			this.pipe[i].x = 170 + 800 * i;
-			let minY = -120;
-			let maxY = 120;
+			// let minY = -120;
+			// let maxY = 120;
 			// this.pipe[i].y = minY + Math.random() * (maxY - minY);
 		}
 		// 再来一局时，还原小鸟位置和角度
 		let bird = this.node.getChildByName("Bird");
-		bird.y = -182;
+		bird.y = -438;
 		// bird.rotation = 0;
 		// 分数清零
 		this.gameScore = 0;

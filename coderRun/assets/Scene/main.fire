@@ -116,8 +116,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 750,
+      "height": 1334
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -128,8 +128,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        480,
-        320,
+        375,
+        667,
         0,
         0,
         0,
@@ -178,8 +178,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 750,
+      "height": 1334
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -341,8 +341,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 1334,
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -353,15 +353,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        960,
         0,
         0,
         0,
         0,
         0,
         1,
-        1,
-        1,
+        2,
+        2,
         1
       ]
     },
@@ -435,8 +435,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 1334,
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -447,15 +447,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        960,
+        3622.183,
         0,
         0,
         0,
         0,
         0,
         1,
-        1,
-        1,
+        2,
+        2,
         1
       ]
     },
@@ -551,14 +551,14 @@
       "ctor": "Float64Array",
       "array": [
         -300,
-        -184,
+        -438,
         0,
         0,
         0,
         0,
         1,
-        1,
-        1,
+        2,
+        2,
         1
       ]
     },
@@ -661,7 +661,7 @@
       "width": 29,
       "height": 41
     },
-    "_id": "2a9vFudMRGs71eBeOUs0ha"
+    "_id": "b60aeT8spFzYZm9ndwFcTx"
   },
   {
     "__type__": "cc.Node",
@@ -1278,11 +1278,11 @@
     "_enabled": true,
     "_designResolution": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 750,
+      "height": 1334
     },
-    "_fitWidth": true,
-    "_fitHeight": false,
+    "_fitWidth": false,
+    "_fitHeight": true,
     "_id": "59Cd0ovbdF4byw5sbjJDx7"
   },
   {
