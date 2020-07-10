@@ -86,7 +86,7 @@ cc.Class({
 			return
 		}
 		// 移动背景图
-		for (let i = 0; i < 2; i++) {
+		for (let i = 0; i < 7; i++) {
 			this.SpBg[i].node.x -= 6.0;
 			if (this.SpBg[i].node.x <= -2668) {
 				this.SpBg[i].node.x = 2660
@@ -95,8 +95,8 @@ cc.Class({
 		// 移动障碍物
 		for (let i = 0; i < this.pipe.length; i++) {
 			this.pipe[i].x -= 6.0;
-			if (this.pipe[i].x <= -470) {
-				this.pipe[i].x = 1000;
+			if (this.pipe[i].x <= -750) {
+				this.pipe[i].x = 750;
 
 				// let minY = -120;
 				// let maxY = 120;
@@ -127,7 +127,7 @@ cc.Class({
 		}
 		// 再来一局时，还原小鸟位置和角度
 		let bird = this.node.getChildByName("Bird");
-		bird.y = -438;
+		bird.y = -202;
 		// bird.rotation = 0;
 		// 分数清零
 		this.gameScore = 0;
