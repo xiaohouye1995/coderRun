@@ -5,12 +5,14 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 export const GameStatus = {
-  Game_Ready: 0,
-  Game_playing: 1,
-  Game_over: 2
+	Game_Ready: 0,
+	Game_playing: 1,
+	Game_over: 2
 }
 import AudioSourceControl from "./AudioSourceControl"
-import {SoundType} from "./AudioSourceControl"
+import {
+	SoundType
+} from "./AudioSourceControl"
 cc.Class({
 	extends: cc.Component,
 
@@ -86,22 +88,22 @@ cc.Class({
 			return
 		}
 		// 移动背景图
-		for (let i = 0; i < 7; i++) {
+		for (let i = 0; i < 6; i++) {
 			this.SpBg[i].node.x -= 6.0;
-			if (this.SpBg[i].node.x <= -2668) {
-				this.SpBg[i].node.x = 2660
+			if (this.SpBg[i].node.x <= -1500) {
+				this.SpBg[i].node.x = 1500
 			}
 		}
 		// 移动障碍物
 		for (let i = 0; i < this.pipe.length; i++) {
 			this.pipe[i].x -= 6.0;
-			if (this.pipe[i].x <= -750) {
-				this.pipe[i].x = 750;
+			if (this.pipe[i].x <= -1500) {
+				this.pipe[i].x = 1500;
 
 				// let minY = -120;
 				// let maxY = 120;
 				// this.pipe[i].y = minY + Math.random() * (maxY - minY);
-				
+
 				// 每当一个管子移除屏幕就加1分
 				this.gameScore++;
 				this.labelScore.string = this.gameScore.toString();
@@ -110,8 +112,8 @@ cc.Class({
 			}
 		}
 	},
-	
-	touchStartBtn () {
+
+	touchStartBtn() {
 		// 隐藏开始按钮
 		this.btnStart.node.active = false;
 		// 游戏状态标记为Game_playing
@@ -127,13 +129,13 @@ cc.Class({
 		}
 		// 再来一局时，还原小鸟位置和角度
 		let bird = this.node.getChildByName("Bird");
-		bird.y = -202;
+		bird.y = -220;
 		// bird.rotation = 0;
 		// 分数清零
 		this.gameScore = 0;
 		this.labelScore.string = this.gameScore.toString();
 	},
-	
+
 	gameOver() {
 		// 游戏结束时，显示gameover
 		this.spGameOver.node.active = true;
