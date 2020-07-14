@@ -192,7 +192,7 @@
       "array": [
         0,
         0,
-        296.180688094278,
+        295.3081545217989,
         0,
         0,
         0,
@@ -876,7 +876,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "e213e998-8eae-4cb7-b693-5ddce32ceffb"
+      "__uuid__": "b1647eca-25c3-4de9-9890-b939384d2390"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1147,14 +1147,14 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        120,
+        180,
         0,
         0,
         0,
         0,
         1,
-        1,
-        1,
+        2,
+        2,
         1
       ]
     },
@@ -1251,8 +1251,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        2,
+        2,
         1
       ]
     },
@@ -1502,8 +1502,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 22.25,
-      "height": 50.4
+      "width": 33.37,
+      "height": 75.6
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1515,7 +1515,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        200,
+        550,
         0,
         0,
         0,
@@ -1555,8 +1555,8 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 60,
+    "_lineHeight": 60,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1731,6 +1731,9 @@
         "__id__": 17
       }
     ],
+    "SpCity": {
+      "__uuid__": "1ae954be-30f1-4c4f-9e81-b19e5fb5182f"
+    },
     "pipePrefab": {
       "__uuid__": "d5a59724-9d25-414f-9b39-e8297b0fbc38"
     },

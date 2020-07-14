@@ -25,6 +25,10 @@ cc.Class({
 			default: [],
 			type: [cc.Sprite]
 		},
+		SpCity: {
+			default: null,
+			type: cc.SpriteFrame
+		},
 		pipePrefab: {
 			default: null,
 			type: cc.Prefab
@@ -91,7 +95,8 @@ cc.Class({
 		for (let i = 0; i < 6; i++) {
 			this.SpBg[i].node.x -= 6.0;
 			if (this.SpBg[i].node.x <= -1500) {
-				this.SpBg[i].node.x = 1500
+				this.SpBg[i].node.x = 1500;
+				this.SpBg[2].spriteFrame = this.SpCity;
 			}
 		}
 		// 移动障碍物
