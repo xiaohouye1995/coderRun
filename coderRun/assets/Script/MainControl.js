@@ -26,8 +26,8 @@ cc.Class({
 			type: [cc.Sprite]
 		},
 		SpCity: {
-			default: null,
-			type: cc.SpriteFrame
+			default: [],
+			type: [cc.SpriteFrame]
 		},
 		pipePrefab: {
 			default: null,
@@ -51,6 +51,7 @@ cc.Class({
 			default: null,
 			type: AudioSourceControl
 		},
+		num: 0
 	},
 
 	// LIFE-CYCLE CALLBACKS:
@@ -96,7 +97,13 @@ cc.Class({
 			this.SpBg[i].node.x -= 6.0;
 			if (this.SpBg[i].node.x <= -1500) {
 				this.SpBg[i].node.x = 1500;
-				this.SpBg[2].spriteFrame = this.SpCity;
+				if (this.num % 2 === 0) {
+					this.SpBg[2].spriteFrame = this.SpCity[this.num];
+				} else {
+					this.SpBg[5].spriteFrame = this.SpCity[this.num];	
+				}
+				this.num = this.num === 3 ? 0 : this.num+1;
+				console.log(this.num)
 			}
 		}
 		// 移动障碍物
@@ -134,7 +141,7 @@ cc.Class({
 		}
 		// 再来一局时，还原小鸟位置和角度
 		let bird = this.node.getChildByName("Bird");
-		bird.y = -220;
+		bird.y = -45;
 		// bird.rotation = 0;
 		// 分数清零
 		this.gameScore = 0;

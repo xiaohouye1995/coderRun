@@ -3,7 +3,7 @@
   "_name": "BirdAnim",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 0.26666666666666666,
+  "_duration": 0.5166666666666667,
   "sample": 60,
   "speed": 1,
   "wrapMode": 2,
@@ -14,25 +14,43 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "27df2c4c-aa83-4029-b6f8-425174cc605d"
+              "__uuid__": "979ca244-971e-451d-9ea7-466ebaad4c97"
             }
           },
           {
             "frame": 0.08333333333333333,
             "value": {
-              "__uuid__": "d7adfd35-13e8-4e50-90a5-2d98c4ecb349"
+              "__uuid__": "c8098462-d680-44f2-8771-159fb7dca070"
             }
           },
           {
             "frame": 0.16666666666666666,
             "value": {
-              "__uuid__": "88f2702f-c243-44ef-89a2-bbbdfbf30b97"
+              "__uuid__": "56f1a02a-fde5-4ad1-af3a-0630d71937b7"
             }
           },
           {
             "frame": 0.25,
             "value": {
-              "__uuid__": "27df2c4c-aa83-4029-b6f8-425174cc605d"
+              "__uuid__": "f33ec87d-f621-427c-9eaf-1affb8a0873c"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "7c31c190-05a5-4852-8b6e-054170781be8"
+            }
+          },
+          {
+            "frame": 0.4166666666666667,
+            "value": {
+              "__uuid__": "e6381c51-156b-48be-acc7-406bc20907f9"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "979ca244-971e-451d-9ea7-466ebaad4c97"
             }
           }
         ]
