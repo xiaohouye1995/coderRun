@@ -21,6 +21,22 @@ cc.Class({
 			default: null,
 			type: cc.Label
 		},
+		signName: {
+			default: null,
+			type: cc.Label
+		},
+		signBackground: {
+			default: null,
+			type: cc.Sprite
+		},
+		cityBack1: {
+			default: null,
+			type: cc.Sprite
+		},
+		cityBack2: {
+			default: null,
+			type: cc.Sprite
+		},
 		SpBg: {
 			default: [],
 			type: [cc.Sprite]
@@ -29,11 +45,11 @@ cc.Class({
 			default: [],
 			type: [cc.SpriteFrame]
 		},
-		pipePrefab: {
+		stonePrefab: {
 			default: null,
 			type: cc.Prefab
 		},
-		pipe: {
+		stone: {
 			default: [],
 			type: [cc.Node]
 		},
@@ -51,7 +67,7 @@ cc.Class({
 			default: null,
 			type: AudioSourceControl
 		},
-		num: 0
+		num: 1
 	},
 
 	// LIFE-CYCLE CALLBACKS:
@@ -76,14 +92,14 @@ cc.Class({
 
 	start() {
 		// 生成障碍物
-		for (let i = 0; i < this.pipe.length; i++) {
-			this.pipe[i] = cc.instantiate(this.pipePrefab);
-			this.node.getChildByName("Pipe").addChild(this.pipe[i]);
+		for (let i = 0; i < this.stone.length; i++) {
+			this.stone[i] = cc.instantiate(this.stonePrefab);
+			this.node.getChildByName("Stone").addChild(this.stone[i]);
 
-			this.pipe[i].x = 170 + 800 * i;
+			this.stone[i].x = 170 + 800 * i;
 			// let minY = -120;
 			// let maxY = 120;
-			// this.pipe[i].y = minY + Math.random() * (maxY - minY);
+			// this.stone[i].y = minY + Math.random() * (maxY - minY);
 		}
 	},
 
@@ -92,35 +108,57 @@ cc.Class({
 		if (this.gameStatus !== GameStatus.Game_playing) {
 			return
 		}
+		
 		// 移动背景图
-		for (let i = 0; i < 6; i++) {
+		for (let i = 0; i < 4; i++) {
 			this.SpBg[i].node.x -= 6.0;
 			if (this.SpBg[i].node.x <= -1500) {
 				this.SpBg[i].node.x = 1500;
-				if (this.num % 2 === 0) {
-					this.SpBg[2].spriteFrame = this.SpCity[this.num];
-				} else {
-					this.SpBg[5].spriteFrame = this.SpCity[this.num];	
-				}
-				this.num = this.num === 3 ? 0 : this.num+1;
-				console.log(this.num)
 			}
 		}
+		
+		this.cityBack1.node.x -= 6.0;
+		if (this.cityBack1.node.x <= -1500) {
+			this.cityBack1.node.x = 1500;
+			console.log(this.num)
+			// 城市循环
+			this.num = this.num === 4 ? 0 : this.num+1;
+			this.cityBack1.spriteFrame = this.SpCity[this.num];
+		}
+		this.cityBack2.node.x -= 6.0;
+		if (this.cityBack2.node.x <= -1500) {
+			this.cityBack2.node.x = 1500;
+			console.log(this.num)
+			// 城市循环
+			this.num = this.num === 4 ? 0 : this.num+1;
+			this.cityBack2.spriteFrame = this.SpCity[this.num];
+		}
+		
+		// 移动标牌
+		let cityName = ['杭州', '香港', '越南', '泰国', '印度'];
+		this.signName.node.x -= 6.0;
+		this.signBackground.node.x -= 6.0;
+		if (this.signName.node.x <= -750) {
+			this.signName.node.x = 750;
+			this.signBackground.node.x = 750;
+			// 标牌名称改变
+			this.signName.string = cityName[this.num];
+			// 每当一个城市移除屏幕就加1分
+			this.gameScore++;
+			this.labelScore.string = '路过了 ' + this.gameScore.toString() + '/60 座城市';
+			// 播放加分音效
+			this.audioControl.playSound(SoundType.E_Sound_Score);
+		}
+		
 		// 移动障碍物
-		for (let i = 0; i < this.pipe.length; i++) {
-			this.pipe[i].x -= 6.0;
-			if (this.pipe[i].x <= -1500) {
-				this.pipe[i].x = 1500;
+		for (let i = 0; i < this.stone.length; i++) {
+			this.stone[i].x -= 6.0;
+			if (this.stone[i].x <= -1500) {
+				this.stone[i].x = 1500;
 
 				// let minY = -120;
 				// let maxY = 120;
-				// this.pipe[i].y = minY + Math.random() * (maxY - minY);
-
-				// 每当一个管子移除屏幕就加1分
-				this.gameScore++;
-				this.labelScore.string = this.gameScore.toString();
-				// 播放加分音效
-				this.audioControl.playSound(SoundType.E_Sound_Score);
+				// this.stone[i].y = minY + Math.random() * (maxY - minY);
 			}
 		}
 	},
@@ -132,14 +170,14 @@ cc.Class({
 		this.gameStatus = GameStatus.Game_playing;
 		// 再来一局时，隐藏gameover图片
 		this.spGameOver.node.active = false;
-		// 再来一局时，管子重置位置
-		for (let i = 0; i < this.pipe.length; i++) {
-			this.pipe[i].x = 170 + 800 * i;
+		// 再来一局时，障碍物重置位置
+		for (let i = 0; i < this.stone.length; i++) {
+			this.stone[i].x = 170 + 800 * i;
 			// let minY = -120;
 			// let maxY = 120;
-			// this.pipe[i].y = minY + Math.random() * (maxY - minY);
+			// this.stone[i].y = minY + Math.random() * (maxY - minY);
 		}
-		// 再来一局时，还原小鸟位置和角度
+		// 再来一局时，还原主角位置和角度
 		let bird = this.node.getChildByName("Bird");
 		bird.y = -45;
 		// bird.rotation = 0;
