@@ -120,22 +120,20 @@ cc.Class({
 		this.cityBack1.node.x -= 6.0;
 		if (this.cityBack1.node.x <= -1500) {
 			this.cityBack1.node.x = 1500;
-			console.log(this.num)
 			// 城市循环
-			this.num = this.num === 4 ? 0 : this.num+1;
+			this.num = this.num === 6 ? 0 : this.num+1;
 			this.cityBack1.spriteFrame = this.SpCity[this.num];
 		}
 		this.cityBack2.node.x -= 6.0;
 		if (this.cityBack2.node.x <= -1500) {
 			this.cityBack2.node.x = 1500;
-			console.log(this.num)
 			// 城市循环
-			this.num = this.num === 4 ? 0 : this.num+1;
+			this.num = this.num === 6 ? 0 : this.num+1;
 			this.cityBack2.spriteFrame = this.SpCity[this.num];
 		}
 		
 		// 移动标牌
-		let cityName = ['杭州', '香港', '越南', '泰国', '印度'];
+		let cityName = ['杭州', '香港', '越南', '柬埔寨', '泰国', '缅甸', '印度'];
 		this.signName.node.x -= 6.0;
 		this.signBackground.node.x -= 6.0;
 		if (this.signName.node.x <= -750) {
