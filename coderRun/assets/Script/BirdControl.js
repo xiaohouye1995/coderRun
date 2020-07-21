@@ -41,6 +41,9 @@ cc.Class({
 		this.accRight = false;
 		// 主角当前水平方向速度
 		this.xSpeed = 0;
+		
+		// 获得游戏主角
+		this.bird = this.node.getChildByName("Bird").getComponent(cc.Sprite);
 	},
 
 	start() {
@@ -108,7 +111,10 @@ cc.Class({
 		// 游戏结束
 		cc.log("gameover");
 		this.mainControl.gameOver();
-		this.speed = 0;
+		// this.speed = 0;
+		// 主角倒地
+		// this.node.rotation = -90;
+		// this.node.y = -60;
 	}
 
 });
