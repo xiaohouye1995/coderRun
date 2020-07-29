@@ -121,19 +121,19 @@ cc.Class({
 		if (this.cityBack1.node.x <= -1500) {
 			this.cityBack1.node.x = 1500;
 			// 城市循环
-			this.num = this.num === 17 ? 0 : this.num+1;
+			this.num = this.num === 19 ? 0 : this.num+1;
 			this.cityBack1.spriteFrame = this.SpCity[this.num];
 		}
 		this.cityBack2.node.x -= 6.0;
 		if (this.cityBack2.node.x <= -1500) {
 			this.cityBack2.node.x = 1500;
 			// 城市循环
-			this.num = this.num === 17 ? 0 : this.num+1;
+			this.num = this.num === 19 ? 0 : this.num+1;
 			this.cityBack2.spriteFrame = this.SpCity[this.num];
 		}
 		
 		// 移动标牌
-		let cityName = ['杭州', '香港', '越南', '柬埔寨', '泰国', '缅甸', '印度', '迪拜', '土耳其', '俄罗斯', '冰岛', '英国', '荷兰', '巴黎', '罗马', '希腊', '埃及', '非洲'];
+		let cityName = ['杭州', '香港', '越南', '柬埔寨', '泰国', '缅甸', '印度', '迪拜', '土耳其', '俄罗斯', '冰岛', '英国', '荷兰', '巴黎', '罗马', '希腊', '埃及', '非洲', '马来西亚', '澳大利亚'];
 		this.signName.node.x -= 6.0;
 		this.signBackground.node.x -= 6.0;
 		if (this.signName.node.x <= -750) {
