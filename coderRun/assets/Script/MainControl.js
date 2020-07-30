@@ -112,33 +112,33 @@ cc.Class({
 		// 移动背景图
 		for (let i = 0; i < 4; i++) {
 			this.SpBg[i].node.x -= 6.0;
-			if (this.SpBg[i].node.x <= -1500) {
-				this.SpBg[i].node.x = 1500;
+			if (this.SpBg[i].node.x <= -1800) {
+				this.SpBg[i].node.x = 1800;
 			}
 		}
 		
 		this.cityBack1.node.x -= 6.0;
-		if (this.cityBack1.node.x <= -1500) {
-			this.cityBack1.node.x = 1500;
+		if (this.cityBack1.node.x <= -1800) {
+			this.cityBack1.node.x = 1800;
 			// 城市循环
-			this.num = this.num === 19 ? 0 : this.num+1;
+			this.num = this.num === 21 ? 0 : this.num+1;
 			this.cityBack1.spriteFrame = this.SpCity[this.num];
 		}
 		this.cityBack2.node.x -= 6.0;
-		if (this.cityBack2.node.x <= -1500) {
-			this.cityBack2.node.x = 1500;
+		if (this.cityBack2.node.x <= -1800) {
+			this.cityBack2.node.x = 1800;
 			// 城市循环
-			this.num = this.num === 19 ? 0 : this.num+1;
+			this.num = this.num === 21 ? 0 : this.num+1;
 			this.cityBack2.spriteFrame = this.SpCity[this.num];
 		}
 		
 		// 移动标牌
-		let cityName = ['杭州', '香港', '越南', '柬埔寨', '泰国', '缅甸', '印度', '迪拜', '土耳其', '俄罗斯', '冰岛', '英国', '荷兰', '巴黎', '罗马', '希腊', '埃及', '非洲', '马来西亚', '澳大利亚'];
+		let cityName = ['杭州', '香港', '越南', '柬埔寨', '泰国', '缅甸', '印度', '迪拜', '土耳其', '俄罗斯', '冰岛', '英国', '荷兰', '巴黎', '罗马', '希腊', '埃及', '非洲', '马来西亚', '澳大利亚', '南极洲', '巴西'];
 		this.signName.node.x -= 6.0;
 		this.signBackground.node.x -= 6.0;
-		if (this.signName.node.x <= -750) {
-			this.signName.node.x = 750;
-			this.signBackground.node.x = 750;
+		if (this.signName.node.x <= -900) {
+			this.signName.node.x = 900;
+			this.signBackground.node.x = 900;
 			// 标牌名称改变
 			this.signName.string = cityName[this.num];
 			// 每当一个城市移除屏幕就加1分
@@ -151,8 +151,8 @@ cc.Class({
 		// 移动障碍物
 		for (let i = 0; i < this.stone.length; i++) {
 			this.stone[i].x -= 6.0;
-			if (this.stone[i].x <= -1500) {
-				this.stone[i].x = 1500;
+			if (this.stone[i].x <= -1800) {
+				this.stone[i].x = 1800;
 
 				// let minY = -120;
 				// let maxY = 120;
