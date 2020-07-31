@@ -201,7 +201,7 @@
       "array": [
         0,
         0,
-        295.3081545217989,
+        296.180688094278,
         0,
         0,
         0,
@@ -356,7 +356,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1500,
+      "width": 1800,
       "height": 1334
     },
     "_anchorPoint": {
@@ -453,7 +453,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1500,
+      "width": 1800,
       "height": 610
     },
     "_anchorPoint": {
@@ -560,7 +560,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1500,
+      "width": 1800,
       "height": 1334
     },
     "_anchorPoint": {
@@ -572,7 +572,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        1500,
+        1800,
         0,
         0,
         0,
@@ -654,7 +654,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1500,
+      "width": 1800,
       "height": 610
     },
     "_anchorPoint": {
@@ -666,7 +666,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        1500,
+        1800,
         -370,
         0,
         0,
@@ -919,7 +919,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        1500,
+        1800,
         300,
         0,
         0,
@@ -2069,6 +2069,18 @@
       },
       {
         "__uuid__": "ff9708b0-7954-4ff8-8927-2bad484019dd"
+      },
+      {
+        "__uuid__": "88f8f0b1-f757-453e-966d-6cd3c201ff52"
+      },
+      {
+        "__uuid__": "886fc56b-8694-4b97-8c9a-54ffbdaf98e4"
+      },
+      {
+        "__uuid__": "82a523b8-cd1e-4c86-a9d5-09c2d8687c95"
+      },
+      {
+        "__uuid__": "db888a25-2e0a-4661-97d9-0d33f98f78ff"
       }
     ],
     "stonePrefab": {
