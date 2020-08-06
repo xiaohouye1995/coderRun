@@ -2096,6 +2096,12 @@
       },
       {
         "__uuid__": "0eddbb0c-4be2-405b-851a-3ebdc1c67a67"
+      },
+      {
+        "__uuid__": "083289f2-2902-47a7-aee5-53e2bdb256e2"
+      },
+      {
+        "__uuid__": "e2f85ea3-d44f-4612-8fb5-bc7c4340d193"
       }
     ],
     "stonePrefab": {
