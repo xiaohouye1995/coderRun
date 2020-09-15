@@ -1,0 +1,20 @@
+{
+  "ver": "1.1.2",
+  "uuid": "f2bed407-7ed0-48b9-8a07-569ee4a5c187",
+  "isBundle": true,
+  "bundleName": "maps",
+  "priority": 5,
+  "compressionType": {
+    "wechatgame": "subpackage",
+    "baidugame": "subpackage",
+    "xiaomi": "subpackage",
+    "quickgame": "subpackage",
+    "qgame": "subpackage",
+    "huawei": "subpackage",
+    "cocos-runtime": "subpackage"
+  },
+  "optimizeHotUpdate": {},
+  "inlineSpriteFrames": {},
+  "isRemoteBundle": {},
+  "subMetas": {}
+}

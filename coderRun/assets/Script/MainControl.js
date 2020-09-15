@@ -88,6 +88,35 @@ cc.Class({
 		this.btnStart.node.on(cc.Node.EventType.TOUCH_END, this.touchStartBtn, this);
 		// 获取音频模块
 		this.audioControl = this.node.getChildByName("AudioSource").getComponent("AudioSourceControl");
+		// 加载分包
+		cc.assetManager.loadBundle('maps', (err, bundle) => {
+		    // bundle.load('maps');
+			// bundle.load('imgs', cc.SpriteFrame, null, (err, spriteFrame) => {
+			// 	console.log(err)
+			// 	console.log(111, spriteFrame)
+			// 	// node.addChild(spriteFrame, 1, "SpCity");
+			// 	// this.SpCity.node.addChild(spriteFrame);
+			// 	this.SpCity.push(spriteFrame)
+			// 	console.log(222, this.SpCity)
+			// });
+			bundle.loadDir('imgs', cc.SpriteFrame, (err, spriteFrames) => {
+				console.log(err)
+				console.log(111, spriteFrames)
+				for (let item of spriteFrames) {
+					this.SpCity.push(item)
+				}
+				console.log(222, this.SpCity)
+			});
+			// let aa = this.node.getChildByName("SpCity");
+			// console.log(111, aa)
+			// let infos = []
+			// bundle.getDirWithPath('imgs', cc.SpriteFrame, infos);
+			// console.log(111, infos)
+			// for (let item of infos) {
+			// 	this.SpCity.push(item)
+			// }
+			// console.log(222, this.SpCity)
+		});
 	},
 
 	start() {
@@ -108,7 +137,7 @@ cc.Class({
 		if (this.gameStatus !== GameStatus.Game_playing) {
 			return
 		}
-		
+
 		// 移动背景图
 		for (let i = 0; i < 4; i++) {
 			this.SpBg[i].node.x -= 6.0;
@@ -116,24 +145,29 @@ cc.Class({
 				this.SpBg[i].node.x = 2400;
 			}
 		}
-		
+
 		this.cityBack1.node.x -= 6.0;
 		if (this.cityBack1.node.x <= -2400) {
 			this.cityBack1.node.x = 2400;
 			// 城市循环
-			this.num = this.num === 33 ? 0 : this.num+1;
+			this.num = this.num === 33 ? 0 : this.num + 1;
 			this.cityBack1.spriteFrame = this.SpCity[this.num];
+			console.log('cityBack1', this.cityBack1.spriteFrame)
 		}
 		this.cityBack2.node.x -= 6.0;
 		if (this.cityBack2.node.x <= -2400) {
 			this.cityBack2.node.x = 2400;
 			// 城市循环
-			this.num = this.num === 33 ? 0 : this.num+1;
+			this.num = this.num === 33 ? 0 : this.num + 1;
 			this.cityBack2.spriteFrame = this.SpCity[this.num];
+			console.log('cityBack2', this.cityBack2.spriteFrame)
 		}
-		
+
 		// 移动标牌
-		let cityName = ['杭州', '香港', '越南', '柬埔寨', '泰国', '缅甸', '印度', '迪拜', '土耳其', '俄罗斯', '冰岛', '英国', '荷兰', '巴黎', '罗马', '希腊', '埃及', '非洲', '马来西亚', '澳大利亚', '南极洲', '巴西', '墨西哥', '华盛顿', '纽约', '加拿大', '北极', '夏威夷', '日本', '韩国', '北京', '西安', '南京', '上海'];
+		let cityName = ['杭州', '香港', '越南', '柬埔寨', '泰国', '缅甸', '印度', '迪拜', '土耳其', '俄罗斯', '冰岛', '英国', '荷兰', '巴黎', '罗马', '希腊',
+			'埃及', '非洲', '马来西亚', '澳大利亚', '南极洲', '巴西', '墨西哥', '华盛顿', '纽约', '加拿大', '北极', '夏威夷', '日本', '韩国', '北京', '西安', '南京',
+			'上海'
+		];
 		this.signName.node.x -= 6.0;
 		this.signBackground.node.x -= 6.0;
 		if (this.signName.node.x <= -1200) {
@@ -147,7 +181,7 @@ cc.Class({
 			// 播放加分音效
 			this.audioControl.playSound(SoundType.E_Sound_Score);
 		}
-		
+
 		// 移动障碍物
 		for (let i = 0; i < this.stone.length; i++) {
 			this.stone[i].x -= 6.0;
