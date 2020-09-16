@@ -43,7 +43,7 @@ cc.Class({
 		this.xSpeed = 0;
 		
 		// 获得游戏主角
-		this.bird = this.node.getChildByName("Bird").getComponent(cc.Sprite);
+		// this.bird = this.node.getChildByName("Bird").getComponent(cc.Sprite);
 	},
 
 	start() {

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "3aaa1e7e-6689-48db-9d72-c0211863c96c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1500,
+  "height": 734,
+  "platformSettings": {},
+  "subMetas": {
+    "Dubai": {
+      "ver": "1.0.4",
+      "uuid": "2e1e8b0f-ae2e-4740-96a3-01d577a1649e",
+      "rawTextureUuid": "3aaa1e7e-6689-48db-9d72-c0211863c96c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 17.5,
+      "offsetY": 0,
+      "trimX": 124,
+      "trimY": 0,
+      "width": 1287,
+      "height": 734,
+      "rawWidth": 1500,
+      "rawHeight": 734,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

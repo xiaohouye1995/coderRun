@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "ae01fb29-b809-42d1-81d3-044cff3d418f",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1669,
+  "height": 1461,
+  "platformSettings": {},
+  "subMetas": {
+    "Washington": {
+      "ver": "1.0.4",
+      "uuid": "6586b317-3382-4669-98f3-3f3e526ce2f3",
+      "rawTextureUuid": "ae01fb29-b809-42d1-81d3-044cff3d418f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1669,
+      "height": 1461,
+      "rawWidth": 1669,
+      "rawHeight": 1461,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

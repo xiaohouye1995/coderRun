@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "6411012b-df6e-4aa8-a855-dba2be5186e6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1500,
+  "height": 734,
+  "platformSettings": {},
+  "subMetas": {
+    "cambodia": {
+      "ver": "1.0.4",
+      "uuid": "e709b159-0df8-4222-897b-e355471ccfff",
+      "rawTextureUuid": "6411012b-df6e-4aa8-a855-dba2be5186e6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -3,
+      "offsetY": -16,
+      "trimX": 24,
+      "trimY": 32,
+      "width": 1446,
+      "height": 702,
+      "rawWidth": 1500,
+      "rawHeight": 734,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

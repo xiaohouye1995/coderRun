@@ -89,34 +89,7 @@ cc.Class({
 		// 获取音频模块
 		this.audioControl = this.node.getChildByName("AudioSource").getComponent("AudioSourceControl");
 		// 加载分包
-		cc.assetManager.loadBundle('maps', (err, bundle) => {
-		    // bundle.load('maps');
-			// bundle.load('imgs', cc.SpriteFrame, null, (err, spriteFrame) => {
-			// 	console.log(err)
-			// 	console.log(111, spriteFrame)
-			// 	// node.addChild(spriteFrame, 1, "SpCity");
-			// 	// this.SpCity.node.addChild(spriteFrame);
-			// 	this.SpCity.push(spriteFrame)
-			// 	console.log(222, this.SpCity)
-			// });
-			bundle.loadDir('imgs', cc.SpriteFrame, (err, spriteFrames) => {
-				console.log(err)
-				console.log(111, spriteFrames)
-				for (let item of spriteFrames) {
-					this.SpCity.push(item)
-				}
-				console.log(222, this.SpCity)
-			});
-			// let aa = this.node.getChildByName("SpCity");
-			// console.log(111, aa)
-			// let infos = []
-			// bundle.getDirWithPath('imgs', cc.SpriteFrame, infos);
-			// console.log(111, infos)
-			// for (let item of infos) {
-			// 	this.SpCity.push(item)
-			// }
-			// console.log(222, this.SpCity)
-		});
+		this.loadCityMaps()
 	},
 
 	start() {
@@ -175,12 +148,13 @@ cc.Class({
 			this.signBackground.node.x = 1200;
 			// 标牌名称改变
 			this.signName.string = cityName[this.num];
-			// 每当一个城市移除屏幕就加1分
-			this.gameScore++;
-			this.labelScore.string = '路过了 ' + this.gameScore.toString() + '/60 座城市';
 			// 播放加分音效
 			this.audioControl.playSound(SoundType.E_Sound_Score);
 		}
+		
+		// 每当一个城市移除屏幕就加1分
+		this.gameScore += 4;
+		this.labelScore.string = this.gameScore.toString() + ' km';
 
 		// 移动障碍物
 		for (let i = 0; i < this.stone.length; i++) {
@@ -216,6 +190,25 @@ cc.Class({
 		// 分数清零
 		this.gameScore = 0;
 		this.labelScore.string = this.gameScore.toString();
+	},
+	
+	loadCityMaps() {
+		let citys = ['hangzhou', 'hongkong', 'vietnam', 'cambodia', 'thai', 'myanmar', 'india', 'Dubai', 'Turkey', 'Russia', 'iceland', 'london', 'holland', 'paris', 'rome', 'greece',
+			'egypt', 'africa', 'Malaysia', 'australia', 'antarctica', 'brazil', 'mexico', 'Washington', 'newYork', 'canada', 'arctic', 'hawaii', 'japan', 'korea', 'beijing', 'xiAn', 'nanjing',
+			'shanghai'
+		];
+		cc.assetManager.loadBundle('maps', (err, bundle) => {
+			bundle.loadDir('/', cc.SpriteFrame, (err, spriteFrames) => {
+				for (let name of citys) {
+					for (let item of spriteFrames) {
+						if (name === item.name) {
+							this.SpCity.push(item)
+						}
+					}
+				}
+				console.log('SpCity', this.SpCity)
+			});
+		});
 	},
 
 	gameOver() {
