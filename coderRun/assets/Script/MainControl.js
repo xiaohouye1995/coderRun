@@ -70,8 +70,6 @@ cc.Class({
 		num: 1
 	},
 
-	// LIFE-CYCLE CALLBACKS:
-
 	onLoad() {
 		// 开启碰撞检测
 		let collisionManager = cc.director.getCollisionManager();
@@ -97,7 +95,6 @@ cc.Class({
 		for (let i = 0; i < this.stone.length; i++) {
 			this.stone[i] = cc.instantiate(this.stonePrefab);
 			this.node.getChildByName("Stone").addChild(this.stone[i]);
-
 			this.stone[i].x = 170 + 800 * i;
 			// let minY = -120;
 			// let maxY = 120;
@@ -118,11 +115,11 @@ cc.Class({
 				this.SpBg[i].node.x = 2400;
 			}
 		}
-
+		
+		// 移动城市
 		this.cityBack1.node.x -= 6.0;
 		if (this.cityBack1.node.x <= -2400) {
 			this.cityBack1.node.x = 2400;
-			// 城市循环
 			this.num = this.num === 33 ? 0 : this.num + 1;
 			this.cityBack1.spriteFrame = this.SpCity[this.num];
 			console.log('cityBack1', this.cityBack1.spriteFrame)
@@ -130,7 +127,6 @@ cc.Class({
 		this.cityBack2.node.x -= 6.0;
 		if (this.cityBack2.node.x <= -2400) {
 			this.cityBack2.node.x = 2400;
-			// 城市循环
 			this.num = this.num === 33 ? 0 : this.num + 1;
 			this.cityBack2.spriteFrame = this.SpCity[this.num];
 			console.log('cityBack2', this.cityBack2.spriteFrame)
@@ -152,7 +148,7 @@ cc.Class({
 			this.audioControl.playSound(SoundType.E_Sound_Score);
 		}
 		
-		// 每当一个城市移除屏幕就加1分
+		// 里程数
 		this.gameScore += 4;
 		this.labelScore.string = this.gameScore.toString() + ' km';
 
@@ -161,7 +157,6 @@ cc.Class({
 			this.stone[i].x -= 6.0;
 			if (this.stone[i].x <= -2400) {
 				this.stone[i].x = 2400;
-
 				// let minY = -120;
 				// let maxY = 120;
 				// this.stone[i].y = minY + Math.random() * (maxY - minY);
@@ -185,7 +180,7 @@ cc.Class({
 		}
 		// 再来一局时，还原主角位置和角度
 		let bird = this.node.getChildByName("Bird");
-		bird.y = -45;
+		bird.y = -145;
 		// bird.rotation = 0;
 		// 分数清零
 		this.gameScore = 0;
@@ -206,7 +201,6 @@ cc.Class({
 						}
 					}
 				}
-				console.log('SpCity', this.SpCity)
 			});
 		});
 	},

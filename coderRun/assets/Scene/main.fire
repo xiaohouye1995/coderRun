@@ -201,7 +201,7 @@
       "array": [
         0,
         0,
-        296.180688094278,
+        295.3081545217989,
         0,
         0,
         0,
@@ -454,7 +454,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 2400,
-      "height": 610
+      "height": 500
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -466,7 +466,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -370,
+        -420,
         0,
         0,
         0,
@@ -655,7 +655,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 2400,
-      "height": 610
+      "height": 500
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -667,7 +667,7 @@
       "ctor": "Float64Array",
       "array": [
         2400,
-        -370,
+        -420,
         0,
         0,
         0,
@@ -826,7 +826,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        300,
+        196,
         0,
         0,
         0,
@@ -920,7 +920,7 @@
       "ctor": "Float64Array",
       "array": [
         2400,
-        300,
+        196,
         0,
         0,
         0,
@@ -1014,7 +1014,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -10,
+        -100,
         0,
         0,
         0,
@@ -1108,7 +1108,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        20,
+        -70,
         0,
         0,
         0,
@@ -1213,7 +1213,7 @@
       "ctor": "Float64Array",
       "array": [
         -250,
-        -45,
+        -145,
         0,
         0,
         0,
@@ -1297,10 +1297,10 @@
     },
     "_enabled": true,
     "speed": 0,
-    "jumpHeight": 150,
+    "jumpHeight": 180,
     "jumpDuration": 0.3,
     "maxMoveSpeed": 400,
-    "accel": 1000,
+    "accel": 1200,
     "mainControl": null,
     "_id": "b0cYPQZyBAXLSo9MbGgyGb"
   },
@@ -2027,7 +2027,7 @@
     "gameStatus": 0,
     "gameScore": 0,
     "audioControl": null,
-    "currentCity": 1,
+    "num": 1,
     "_id": "d1YwliVatENIh4vYeOgY1h"
   }
 ]

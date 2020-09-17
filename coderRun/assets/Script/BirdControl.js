@@ -15,11 +15,11 @@ cc.Class({
 	extends: cc.Component,
 
 	properties: {
-		// 小鸟速度
+		// 角色速度
 		speed: 0,
-		// 主角跳跃高度
+		// 角色跳跃高度
 		jumpHeight: 0,
-		// 主角跳跃持续时间
+		// 角色跳跃持续时间
 		jumpDuration: 0,
 		// 最大移动速度
 		maxMoveSpeed: 0,
@@ -39,10 +39,10 @@ cc.Class({
 		// 加速度方向开关
 		this.accLeft = false;
 		this.accRight = false;
-		// 主角当前水平方向速度
+		// 角色当前水平方向速度
 		this.xSpeed = 0;
 		
-		// 获得游戏主角
+		// 获得游戏角色
 		// this.bird = this.node.getChildByName("Bird").getComponent(cc.Sprite);
 	},
 
