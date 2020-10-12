@@ -110,21 +110,21 @@ cc.Class({
 
 		// 移动背景图
 		for (let i = 0; i < 4; i++) {
-			this.SpBg[i].node.x -= 6.0;
+			this.SpBg[i].node.x -= 12;
 			if (this.SpBg[i].node.x <= -2400) {
 				this.SpBg[i].node.x = 2400;
 			}
 		}
 		
 		// 移动城市
-		this.cityBack1.node.x -= 6.0;
+		this.cityBack1.node.x -= 12;
 		if (this.cityBack1.node.x <= -2400) {
 			this.cityBack1.node.x = 2400;
 			this.num = this.num === 33 ? 0 : this.num + 1;
 			this.cityBack1.spriteFrame = this.SpCity[this.num];
 			console.log('cityBack1', this.cityBack1.spriteFrame)
 		}
-		this.cityBack2.node.x -= 6.0;
+		this.cityBack2.node.x -= 12.0;
 		if (this.cityBack2.node.x <= -2400) {
 			this.cityBack2.node.x = 2400;
 			this.num = this.num === 33 ? 0 : this.num + 1;
@@ -137,8 +137,8 @@ cc.Class({
 			'埃及', '非洲', '马来西亚', '澳大利亚', '南极洲', '巴西', '墨西哥', '华盛顿', '纽约', '加拿大', '北极', '夏威夷', '日本', '韩国', '北京', '西安', '南京',
 			'上海'
 		];
-		this.signName.node.x -= 6.0;
-		this.signBackground.node.x -= 6.0;
+		this.signName.node.x -= 12;
+		this.signBackground.node.x -= 12;
 		if (this.signName.node.x <= -1200) {
 			this.signName.node.x = 1200;
 			this.signBackground.node.x = 1200;
@@ -154,7 +154,7 @@ cc.Class({
 
 		// 移动障碍物
 		for (let i = 0; i < this.stone.length; i++) {
-			this.stone[i].x -= 6.0;
+			this.stone[i].x -= 12;
 			if (this.stone[i].x <= -2400) {
 				this.stone[i].x = 2400;
 				// let minY = -120;
